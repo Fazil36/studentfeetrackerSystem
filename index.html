@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Fee Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Student Fee Tracker System</h1>
+    </header>
+
+    <main>
+        <section id="add-fee-section">
+            <h2>Add New Fee Record</h2>
+            <form id="fee-form">
+                <input type="text" id="roll-number" placeholder="Roll Number" required>
+                <input type="text" id="student-name" placeholder="Student Name" required>
+                <input type="number" id="total-fee" placeholder="Total Fee (INR)" step="0.01" required>
+                <input type="number" id="fee-amount" placeholder="Fee Amount (INR)" required>
+                <input type="date" id="payment-date" required>
+                <select id="status" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <button type="submit">Add Record</button>
+            </form>
+        </section>
+
+        <section id="tracker-section">
+            <h2>Fee Records</h2>
+            <div class="controls">
+                <input type="text" id="filter-name" placeholder="Search by Student Name">
+                <select id="filter-status">
+                    <option value="">Filter by Status (All)</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+            </div>
+            
+            <table id="fee-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Amount Paid (INR)</th>
+                        <th>Total Fee (INR)</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Balance (INR)</th>
+                        <th>History</th>
+                    </tr>
+                </thead>
+                <tbody id="fee-records-body">
+                    </tbody>
+            </table>
+
+            <!-- Payment history modal -->
+            <div id="history-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span id="history-close" class="modal-close">&times;</span>
+                    <h3>Payment History - <span id="history-student-name"></span></h3>
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Amount (INR)</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
